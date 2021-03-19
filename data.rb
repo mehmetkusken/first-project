@@ -1,20 +1,23 @@
-require 'rubygems'
-require 'httparty'
+require 'net/http'
+ require 'open-uri'
+ require 'json'
+ require 'pry'
+ 
+ class WeatherInformation
 
-class GetInformations
-  include HTTParty
+  URL = "https://api.weatherbit.io/v2.0/forecast/daily?city=Raleigh,NC&key=f8de7230225843f0bde4e3cd6b843b4f"
 
-  base_uri  "https://www.yelp.com/search?find_desc=Hotels&find_loc=Denver%2C+CO"
-
-  def posts
-    self.class.get('/posts.json')
-    
+  def get_information
+    uri = URI.parse(URL)
+    response = Net::HTTP.get_response(uri)
+    response.body
   end
 
+  def information_weather
+    programs = JSON.parse(self.get_information)
+    weather = programs["data"][0]
+    heat = weather["high_temp"]  
+  end
 end
 
-programs = GetInformations.new
-
- programs.posts.each do |post|
-  p "location : #{post['location']}"
- end
+  
