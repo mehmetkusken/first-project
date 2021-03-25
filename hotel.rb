@@ -1,9 +1,9 @@
-require_relative 'data.rb'
+require_relative "../lib/data.rb"
 
     class Hotel < WeatherInformation
 
-    attr_accessor  :occupied_double_beds_rooms ,:occupied_king_bed_rooms ,:occupied_bussiness_room , :occupied_deluxe_rooms ,:occupied_studio_suite_rooms ,:time ,:available_double_beds_rooms ,:available_king_bed_rooms ,:available_bussiness_room,:available_deluxe_rooms ,:available_studio_suite_rooms , :payment1 , :payment2 , :limit , :total_limit , :occupied_rooms , :available_rooms , :occupied
-    attr_reader :hotel_name , :transaction1 ,:transaction2 ,:transaction3 , :room1, :room2, :room3, :room4, :room5, :room6 , :heat
+    attr_accessor  :room1, :room2, :room3, :room4, :room5, :room6 ,:occupied_double_beds_rooms ,:occupied_king_bed_rooms ,:occupied_bussiness_room , :occupied_deluxe_rooms ,:occupied_studio_suite_rooms ,:time ,:available_double_beds_rooms ,:available_king_bed_rooms ,:available_bussiness_room,:available_deluxe_rooms ,:available_studio_suite_rooms , :payment1 , :payment2 , :limit , :total_limit , :occupied_rooms , :available_rooms , :occupied , :transaction1 ,:transaction2 , :transaction3 
+    attr_reader :hotel_name , :heat
     
     def initialize
         @hotel_name = "Hyatt Regency"
@@ -21,7 +21,7 @@ require_relative 'data.rb'
         @bussiness_rooms = [120,121,122,123,124,125,126,127,128,129]
         @deluxe_rooms = [130,131,132,133,134,135,136,137,138,139]
         @studio_suite_rooms = [140,141,142,143,144,145,146,147,148,149]
-        @occupied_rooms = [*100..149]
+        @occupied_rooms = []
         @available_rooms = [*100..149]
         @available_double_beds_rooms = [*100..109]
         @available_king_bed_rooms =[*110..119]

@@ -1,69 +1,81 @@
-require_relative "hotel.rb"
-require "time"
+require_relative "../lib/hotel.rb"
+    require "time"
 
-class Cli < Hotel
-
+    class Cli < Hotel
 
     def hotel
 
-            kiosk = true
+        kiosk = true
 
-            while kiosk
+        while kiosk
+            
 
-            puts "Welcome to the #{hotel_name} Hotel!"
-            puts "Today weather is #{heat} degree."
-            puts "Please enter your name"
-            name = gets
-            puts "Hello #{name.upcase}"
-            puts"Welcome to #{hotel_name}"
-            puts "**********************************"
-            puts "#{transaction1}!"
-            puts "#{transaction2}!"
-            puts "#{transaction3}!"
-            puts "**********************************"
-            puts "Please enter your transaction"
-            transaction = gets.to_i
-        if transaction == 1
-            puts "Check in transaction is loading"
-            puts "**********************************"
-            puts "#{room1}!"
-            puts "#{room2}!"
-            puts "#{room3}!"
-            puts "#{room4}!"
-            puts "#{room5}!"
-            puts "#{room6}!"
-            puts "**********************************"
+        puts "Welcome to the #{hotel_name} Hotel!"
+        puts "Today temperature is #{heat} degree."
+        puts "Please enter your name"
+        name = gets
+            sleep 5
+        puts "Hello #{name.upcase}"
+        puts"Welcome to #{hotel_name}"
+        puts "**********************************"
+        puts "#{transaction1}!"
+        puts "#{transaction2}!"
+        puts "#{transaction3}!"
+        puts "**********************************"
+        puts "Please enter your transaction"
+        transaction = gets.to_i
 
-            puts "Please choose the room type!"
-            room = gets.to_i
-        if room == 1
+    
+    if transaction == 1
+        sleep 5
+        puts "Check in transaction is loading"
+        sleep 5
+        puts "**********************************"
+        puts "#{room1}!"
+        puts "#{room2}!"
+        puts "#{room3}!"
+        puts "#{room4}!"
+        puts "#{room5}!"
+        puts "#{room6}!"
+        puts "**********************************"
+
+        puts "Please choose the room type!"
+        room = gets.to_i
+   
+
+    if room == 1
+            sleep 5
             puts" Thank you for your choose"
             puts" Your transaction is loading"
-        if  available_double_beds_rooms.length == 0
-            puts "We dont have enough room!"
-        elsif
+            sleep 5
             puts "We have #{available_double_beds_rooms.length()} available room(s)"
             puts available_double_beds_rooms
             puts "Please enter your room number you would like to stay"
             roomnumber = gets.to_i
-    
 
-        if  available_double_beds_rooms.include?(roomnumber)
-            puts "Please enter your how many nights are you going to stay"
+    if  available_double_beds_rooms.include?(roomnumber)
+            sleep 5
+            puts "Please enter your how many nights are you gong to stay"
+
             nights = gets.to_i
+            sleep 5
             puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
-
             total_limit = nights * 150
             puts " Your Balance is #{total_limit}$"
+            sleep 5
 
             puts "Please enter your payment methods"
+            puts 
+        
             puts " #{payment1}"
             puts " #{payment2}"
             payment = gets.to_i
 
+        
 
-        if payment == 1
 
+    if payment == 1
+            sleep 5
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
             puts "Enjoy Your Stay"
@@ -71,213 +83,168 @@ class Cli < Hotel
             occupied_rooms.sort!
             available_rooms.delete(roomnumber)
             available_double_beds_rooms.delete(roomnumber)
-            
-
-
-             
-        elsif payment == 2
-        
-        if total_limit > limit
-                puts "You dont have enough limits"
-                puts "Goodbye"
-        elsif total_limit < limit
-                
-                puts "Thank you so much for Payment. Your Balance is 0"
+           
+    elsif payment == 2
+            sleep 5
+    if total_limit > limit
+            sleep 5
+            puts "You dont have enough limits"
+            puts "Goodbye"
+    elsif total_limit < limit
+            sleep 5   
+            puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
             puts "Enjoy Your Stay"
             occupied_rooms << roomnumber
             occupied_rooms.sort!
             available_rooms.delete(roomnumber)
             available_double_beds_rooms.delete(roomnumber)
-            
-            
-        else
-                puts "Wrong transaction"
-        end
-
-
-        else 
+    
+    else
+            sleep 5
             puts "Wrong transaction"
-        end
+    end
 
 
-        else
+    else 
+            sleep 5
             puts "Wrong transaction"
-        end
-        end
+    end
+
+
+    else
+        sleep 5
+        puts "Wrong transaction"
+    end
 
     
-        elsif room == 2
-            puts" Thank you choose"
-            puts" Your transaction is loading"
-        if available_king_bed_rooms.length == 0
-            puts "We dont have enough room!"
-        elsif
-            puts "We have #{available_king_bed_rooms.length()} available room(s)"
-            puts available_king_bed_rooms
-            puts "Please enter your room number you would like to stay"
-            roomnumber = gets.to_i
+    elsif room == 2
+        sleep 5
+        puts" Thank you choose"
+    puts" Your transaction is loading"
+    puts "We have #{available_king_bed_rooms.length()} available room(s)"
+    puts available_king_bed_rooms
+    puts "Please enter your room number you would like to stay"
+    roomnumber = gets.to_i
 
-        if  available_king_bed_rooms.include?(roomnumber)
-            puts "Please enter your how many nights are you gong to stay"
-            nights = gets.to_i
-            puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
-            total_limit = nights * 150
-            puts " Your Balance is #{total_limit}$"
+    if  available_king_bed_rooms.include?(roomnumber)
+        sleep 5
+        puts "Please enter your how many nights are you gong to stay"
+        nights = gets.to_i
+        sleep 5
+        puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
 
-            puts "Please enter your payment methods"  
-            puts " #{payment1}"
-            puts " #{payment2}"
-            payment = gets.to_i
+        total_limit = nights * 150
+        puts " Your Balance is #{total_limit}$"
+
+        sleep 5
+
+        puts "Please enter your payment methods"
+        puts 
+        
+        puts " #{payment1}"
+        puts " #{payment2}"
+
+        payment = gets.to_i
+        sleep 5
 
 
         if payment == 1
-
+            sleep 5
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
+            sleep 5
             puts "Enjoy Your Stay"
             occupied_rooms << roomnumber
             occupied_rooms.sort!
             available_rooms.delete(roomnumber)
             available_king_bed_rooms.delete(roomnumber)
         elsif payment == 2
-        
-        if total_limit > limit
+            sleep 5
+            if total_limit > limit
+                sleep 5
                 puts "You dont have enough limits"
                 puts "Goodbye"
-        elsif total_limit < limit
-                
-                puts "Thank you so much for Payment. Your Balance is 0"
-                puts "Please take your room key in box"
-                puts "Enjoy Your Stay"
-            
-                occupied_rooms << roomnumber
-                occupied_rooms.sort!
-                available_rooms.delete(roomnumber)
-                available_king_bed_rooms.delete(roomnumber)
-            
-        else
-                puts "Wrong transaction"
-        end
-
-
-        else 
-                puts "Wrong transaction"
-        end
-
-
-        else
-                puts "Wrong transaction"
-        end
-        end
-
-    
-
-        elsif room == 3
-    
-            puts" Thank you choose"
-            puts" Your transaction is loading"
-        if available_bussiness_room.length == 0
-            puts "We dont have enough room!"
-        elsif
-            puts "We have #{available_bussiness_room.length()} available room(s)"
-            puts available_bussiness_room
-            puts "Please enter your room number you would like to stay"
-            roomnumber = gets.to_i
-
-        if  available_bussiness_room.include?(roomnumber)
-            puts "Please enter your how many nights are you gong to stay"
-            nights = gets.to_i
-            puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
-            total_limit = nights * 175
-            puts " Your Balance is #{total_limit}$"
-            puts "Please enter your payment methods"      
-            puts " #{payment1}"
-            puts " #{payment2}"
-            payment = gets.to_i
-
-
-        if  payment == 1
-
-            puts "Thank you so much for Payment. Your Balance is 0"
-            puts "Please take your room key in box"
-            puts "Enjoy Your Stay"
-            occupied_rooms << roomnumber
-            occupied_rooms.sort!
-            available_rooms.delete(roomnumber)
-            available_bussiness_room.delete(roomnumber)
-        elsif payment == 2
-        
-        if total_limit > limit
-            puts "You dont have enough limits"
-            puts "Goodbye"
-        elsif total_limit < limit
+            elsif total_limit < limit
+                sleep 5
                 
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
             puts "Enjoy Your Stay"
-        
+            
             occupied_rooms << roomnumber
             occupied_rooms.sort!
             available_rooms.delete(roomnumber)
-            available_bussiness_room.delete(roomnumber)
+            available_king_bed_rooms.delete(roomnumber)
+        
             
-        else
-            puts "Wrong transaction"
-        end
+            else
+                sleep 5
+                puts "Wrong transaction"
+            end
 
 
         else 
+            sleep 5
             puts "Wrong transaction"
         end
 
 
-        else
+    else
+        sleep 5
         puts "Wrong transaction"
-        end
-        end
+    end
 
     
 
-        
-        elsif room == 4
-            puts" Thank you choose"
-            puts" Your transaction is loading"
-        if available_deluxe_rooms.length == 0
-            puts "We dont have enough room!"
-        elsif
-            puts "We have #{available_deluxe_rooms.length()} available room(s)"
-            puts available_deluxe_rooms
-            puts "Please enter your room number you would like to stay"
-            roomnumber = gets.to_i
+    elsif room == 3
+        sleep 5
+    
+        puts" Thank you choose"
+    puts" Your transaction is loading"
+    sleep 5
+    puts "We have #{available_bussiness_room.length()} available room(s)"
+    puts available_bussiness_room
+    puts "Please enter your room number you would like to stay"
+    roomnumber = gets.to_i
 
-        if  available_deluxe_rooms.include?(roomnumber)
-            puts "Please enter your how many nights are you gong to stay"
-            nights = gets.to_i
-            puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
-            total_limit = nights * 200
-            puts " Your Balance is #{total_limit}$"
-            puts "Please enter your payment methods"
-            puts " #{payment1}"
-            puts " #{payment2}"
-            payment = gets.to_i
+    if  available_bussiness_room.include?(roomnumber)
+        sleep 5
+        puts "Please enter your how many nights are you gong to stay"
+        nights = gets.to_i
+        puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
+
+        total_limit = nights * 175
+        puts " Your Balance is #{total_limit}$"
+        sleep 5
+
+        puts "Please enter your payment methods"
+        puts 
+        
+        puts " #{payment1}"
+        puts " #{payment2}"
+
+        payment = gets.to_i
 
 
         if payment == 1
-
+            sleep 5
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
             puts "Enjoy Your Stay"
             occupied_rooms << roomnumber
             occupied_rooms.sort!
             available_rooms.delete(roomnumber)
-            available_deluxe_rooms.delete(roomnumber)
+            available_bussiness_room.delete(roomnumber)
         elsif payment == 2
+            sleep 5
         
-        if total_limit > limit
-            puts "You dont have enough limits"
-            puts "Goodbye"
-         elsif total_limit < limit
+            if total_limit > limit
+                sleep 5
+                puts "You dont have enough limits"
+                puts "Goodbye"
+            elsif total_limit < limit
+                sleep 5
                 
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
@@ -286,49 +253,133 @@ class Cli < Hotel
             occupied_rooms << roomnumber
             occupied_rooms.sort!
             available_rooms.delete(roomnumber)
-            available_deluxe_rooms.delete(roomnumber)
+            available_bussiness_room.delete(roomnumber)
             
-        else
+            else
+                sleep 5
                 puts "Wrong transaction"
-        end
+            end
 
 
         else 
+            sleep 5
             puts "Wrong transaction"
         end
 
 
-        else
-            puts "Wrong transaction"
-        end
-        end
-        elsif room == 5
-            puts" Thank you choose"
-            puts" Your transaction is loading"
-        if available_studio_suite_rooms.length == 0
-            puts "We dont have enough room!"
-        elsif
-            puts "We have #{available_studio_suite_rooms.length()} available room(s)"
-            puts available_studio_suite_rooms
-            puts "Please enter your room number you would like to stay"
-            roomnumber = gets.to_i
+    else
+        sleep 5
+        puts "Wrong transaction"
+    end
 
-        if  available_studio_suite_rooms.include?(roomnumber)
-            puts "Please enter your how many nights are you gong to stay"
-            nights = gets.to_i
-            puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
+    
 
-            total_limit = nights * 225
-            puts " Your Balance is #{total_limit}$"
-            puts "Please enter your payment methods" 
-            puts " #{payment1}"
-            puts " #{payment2}"
+        
+    elsif room == 4
+        sleep 5
+        puts" Thank you choose"
+    puts" Your transaction is loading"
+    sleep 5
+    puts "We have #{available_deluxe_rooms.length()} available room(s)"
+    puts available_deluxe_rooms
+    puts "Please enter your room number you would like to stay"
+    roomnumber = gets.to_i
 
-            payment = gets.to_i
+    if  available_deluxe_rooms.include?(roomnumber)
+        sleep 5
+        puts "Please enter your how many nights are you gong to stay"
+        nights = gets.to_i
+        puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
+        sleep 5
+        total_limit = nights * 200
+        puts " Your Balance is #{total_limit}$"
+        sleep 5
+
+        puts "Please enter your payment methods"
+        puts 
+        
+        puts " #{payment1}"
+        puts " #{payment2}"
+
+        payment = gets.to_i
 
 
         if payment == 1
+            sleep 5
+            puts "Thank you so much for Payment. Your Balance is 0"
+            puts "Please take your room key in box"
+            puts "Enjoy Your Stay"
+            occupied_rooms << roomnumber
+            occupied_rooms.sort!
+            available_rooms.delete(roomnumber)
+            available_deluxe_rooms.delete(roomnumber)
+        elsif payment == 2
+            sleep 5
+            if total_limit > limit
+                sleep 5
+                puts "You dont have enough limits"
+                puts "Goodbye"
+            elsif total_limit < limit
+                sleep 5
+                
+            puts "Thank you so much for Payment. Your Balance is 0"
+            puts "Please take your room key in box"
+            puts "Enjoy Your Stay"
+            
+            occupied_rooms << roomnumber
+            occupied_rooms.sort!
+            available_rooms.delete(roomnumber)
+            available_deluxe_rooms.delete(roomnumber)
+            
+            else
+                sleep 5
+                puts "Wrong transaction"
+            end
 
+
+        else 
+            sleep 5
+            puts "Wrong transaction"
+        end
+
+
+    else
+        sleep 5
+        puts "Wrong transaction"
+    end
+    elsif room == 5
+        sleep 5
+        puts" Thank you choose"
+    puts" Your transaction is loading"
+    sleep 5
+    puts "We have #{available_studio_suite_rooms.length()} available room(s)"
+    puts available_studio_suite_rooms
+    sleep 5
+    puts "Please enter your room number you would like to stay"
+    roomnumber = gets.to_i
+
+    if  available_studio_suite_rooms.include?(roomnumber)
+        sleep 5
+        puts "Please enter your how many nights are you gong to stay"
+        nights = gets.to_i
+        sleep 5
+        puts" Your Check in date is #{time} and your Check out date is #{time + nights}"
+
+        total_limit = nights * 225
+        puts " Your Balance is #{total_limit}$"
+        sleep 5
+
+        puts "Please enter your payment methods"
+        puts 
+        
+        puts " #{payment1}"
+        puts " #{payment2}"
+
+        payment = gets.to_i
+
+
+        if payment == 1
+            sleep 5
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
             puts "Enjoy Your Stay"
@@ -338,11 +389,14 @@ class Cli < Hotel
             available_studio_suite_rooms.delete(roomnumber)
 
         elsif payment == 2
+            sleep 5
         
-        if total_limit > limit
-            puts "You dont have enough limits"
-            puts "Goodbye"
-        elsif total_limit < limit
+            if total_limit > limit
+                sleep 5
+                puts "You dont have enough limits"
+                puts "Goodbye"
+            elsif total_limit < limit
+                sleep 5
                 
             puts "Thank you so much for Payment. Your Balance is 0"
             puts "Please take your room key in box"
@@ -353,48 +407,58 @@ class Cli < Hotel
             available_rooms.delete(roomnumber)
             available_studio_suite_rooms.delete(roomnumber)
             
-        else
-            puts "Wrong transaction"
-        end
+            
+            else
+                sleep 5
+                puts "Wrong transaction"
+            end
 
 
         else 
+            sleep 5
             puts "Wrong transaction"
         end
 
 
-        else
-            puts "Wrong transaction"
-        end
+    else
+        sleep 5
+        puts "Wrong transaction"
+    end
     
-        else 
-            puts "Wrong transaction" 
-        end
-        end
+    else 
+        sleep 5
+    puts "Wrong transaction" 
+    end
     
     
-        elsif transaction == 2
+    elsif transaction == 2
+            sleep 5
             puts "Check out transaction is loading"
+            sleep 5
             puts " Please enter your room number"
+
             checkout_room = gets.to_i
 
-        if occupied_rooms.include?(checkout_room)
+    if occupied_rooms.include?(checkout_room)
+            sleep 5
             puts "Your Check out transaction is complited. Your balance is 0  . Have a nice day" 
         
-        available_rooms<<checkout_room
-        occupied_rooms.delete(checkout_room)
-        available_rooms.sort!
+            available_rooms<<checkout_room
+            occupied_rooms.delete(checkout_room)
+            available_rooms.sort!
   
-        else
+    else
+            sleep 5
             puts "Wrong room number entered" 
-        end
+    end
     
-        elsif transaction == 3
+    elsif transaction == 3
+            sleep 5
             puts "Leaving the program"
-        else 
+    else 
+            sleep 5
             puts "Wrong transaction"
-        end 
-
-        end
-        end   
-        end
+    end      
+    end     
+end
+end
